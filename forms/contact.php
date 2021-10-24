@@ -22,7 +22,7 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
     $mail = new PHPMailer(true);
 
     //Enable SMTP debugging.
-    $mail->SMTPDebug = 0;
+    $mail->SMTPDebug = 3;
     //Set PHPMailer to use SMTP.
     $mail->isSMTP();
     //Set SMTP host name
@@ -30,8 +30,8 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
     //Set this to true if SMTP host requires authentication to send email
     $mail->SMTPAuth = true;
     //Provide username and password
-    $mail->Username = "oystersauce16@gmail.com";
-    $mail->Password = "Accdj0896@";
+    $mail->Username = getenv("smtp_username");
+    $mail->Password =  getenv("Accdj0896@");
     //If SMTP requires TLS encryption then set it
     $mail->SMTPSecure = "tls";
     //Set TCP port to connect to
