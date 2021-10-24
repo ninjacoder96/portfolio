@@ -37,13 +37,13 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
     //Set TCP port to connect to
     $mail->Port = 587;
 
-    $mail->From = "deguzman.joshua96@gmail.com";
+    $mail->From = $_POST['email'];
     $mail->FromName = $_POST['name'];
 
     $mail->isHTML(true);
 
     $mail->Subject = $_POST['subject'];
-    $mail->addAddress($_POST['email'], $_POST['name']);
+    $mail->addAddress( $receiving_email_address, $_POST['name']);
 
     $mail->Body = $_POST['message'];
 
