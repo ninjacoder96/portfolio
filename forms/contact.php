@@ -22,7 +22,7 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
     $mail = new PHPMailer(true);
 
     //Enable SMTP debugging.
-    $mail->SMTPDebug = 3;
+    $mail->SMTPDebug = 0;
     //Set PHPMailer to use SMTP.
     $mail->isSMTP();
     //Set SMTP host name
