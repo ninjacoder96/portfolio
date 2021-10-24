@@ -31,7 +31,7 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
     $mail->SMTPAuth = true;
     //Provide username and password
     $mail->Username = getenv("smtp_username");
-    $mail->Password =  getenv("Accdj0896@");
+    $mail->Password =  getenv("smtp_password");
     //If SMTP requires TLS encryption then set it
     $mail->SMTPSecure = "tls";
     //Set TCP port to connect to
