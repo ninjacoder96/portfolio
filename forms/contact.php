@@ -17,7 +17,7 @@ require_once "../vendor/autoload.php";
   $mail = new PHPMailer(true);
 
   //Enable SMTP debugging.
-$mail->SMTPDebug = 0;                               
+$mail->SMTPDebug = 3;                               
 //Set PHPMailer to use SMTP.
 $mail->isSMTP();            
 //Set SMTP host name                          
@@ -25,7 +25,7 @@ $mail->Host = "smtp.gmail.com";
 //Set this to true if SMTP host requires authentication to send email
 $mail->SMTPAuth = true;                          
 //Provide username and password     
-$mail->Username = "OysterSauce16@gmail.com";                 
+$mail->Username = "oystersauce16@gmail.com";                 
 $mail->Password = "Accdj0896@";                           
 //If SMTP requires TLS encryption then set it
 $mail->SMTPSecure = "tls";                           
