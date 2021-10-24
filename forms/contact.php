@@ -6,36 +6,48 @@
   * For more info and help: https://bootstrapmade.com/php-email-form/
   */
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require_once "../vendor/autoload.php";
+
   // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+  $receiving_email_address = 'deguzman.joshua96@gmail.com';
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+  $mail = new PHPMailer(true);
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+  //Enable SMTP debugging.
+$mail->SMTPDebug = 0;                               
+//Set PHPMailer to use SMTP.
+$mail->isSMTP();            
+//Set SMTP host name                          
+$mail->Host = "smtp.gmail.com";
+//Set this to true if SMTP host requires authentication to send email
+$mail->SMTPAuth = true;                          
+//Provide username and password     
+$mail->Username = "OysterSauce16@gmail.com";                 
+$mail->Password = "Accdj0896@";                           
+//If SMTP requires TLS encryption then set it
+$mail->SMTPSecure = "tls";                           
+//Set TCP port to connect to
+$mail->Port = 587;         
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+$mail->From = "deguzman.joshua96@gmail.com";
+$mail->FromName = $_POST['name'];
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+$mail->isHTML(true);
 
-  echo $contact->send();
+$mail->Subject = $_POST['subject'];
+$mail->addAddress($_POST['email'], $_POST['name']);
+
+
+$mail->Body = $_POST['message'];
+
+try {
+    $mail->send();
+    echo 'Thanks for being in touch, will reply to you as soon as I read your queries';
+} catch (Exception $e) {
+    echo "Mailer Error: " . $mail->ErrorInfo;
+}
+
 ?>

@@ -1,0 +1,12 @@
+{
+    "name": "joshua/my-resume",
+    "authors": [
+        {
+            "name": "joshua",
+            "email": "joshua@guerilla360.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    }
+}
