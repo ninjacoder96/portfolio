@@ -54,5 +54,5 @@ if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response
         echo "Mailer Error: " . $mail->ErrorInfo;
     }
 } else {
-    $errMsg = 'Please click on the reCAPTCHA box.';
+   echo 'Please click on the reCAPTCHA box.';
 }
